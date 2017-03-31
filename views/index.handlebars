@@ -1,0 +1,36 @@
+
+<div class = "container">
+<h1> Eat a burger </h1>
+{{#each data}}
+	{{#unless this.devoured}}
+	<div class = "row">
+		<pre> {{this.id}}. {{this.burger_name}} </pre>
+
+	<div class = "">
+		<form method = "POST" action = "/burgers/update?_method=PUT" class = "">
+			<input type = "hidden" name = "burger_id" type = "text" value = {{this.id}}>
+			<button type = "submit" class = ""> Nom nom </button>
+			<br>
+		</form>
+	</div>
+</div>	
+<br>
+<br>
+{{/unless}}
+{{/each}}
+
+{{#each data}}
+	{{#if this.devoured}}
+		<input class= '' type = 'text' placeholder = '{{this.id}}. {{this.burger_name}}' readonly>
+	{{/if}}
+{{/each}}
+
+<h1> Make a new burger </h1>
+<div class = "row">
+	<form action = "burgers/create" method = "POST">
+		<input type = "text" name = "burger_name" class = "" value = "" id="new-burger">
+		<button type = "submit" class = "" id "new-burger-button"> SUBMIT </button>
+	</form>
+
+
+</div>
